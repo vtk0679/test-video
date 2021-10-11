@@ -1,8 +1,9 @@
-import "./App.css";
-import React from "react";
-import video from "./1.mp4";
-import videoHeader from "./2.mp4";
-import ReactPlayer from "react-player";
+import './App.css';
+import React from 'react';
+import video from './1.mp4';
+import videoHeader from './2.mp4';
+import videoFooter from './3.mp4';
+import ReactPlayer from 'react-player';
 
 class App extends React.Component {
   state = {
@@ -12,29 +13,24 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    window.addEventListener("scroll", this.listenToScroll);
+    window.addEventListener('scroll', this.listenToScroll);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.listenToScroll);
+    window.removeEventListener('scroll', this.listenToScroll);
   }
 
   listenToScroll = () => {
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
-
-    const height =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
-
-    this.onSeek(winScroll / height);
+    const scroll = window.scrollY - 1084;
+    const height = 1700;
+    if (scroll > 0) this.onSeek(scroll / height);
   };
 
-  ref = (player) => {
+  ref = player => {
     this.setState({ player });
   };
 
-  onSeek = (value) => {
+  onSeek = value => {
     this.setState({ value });
     if (
       value - this.state.seekTo > 0.035 ||
@@ -53,7 +49,7 @@ class App extends React.Component {
         <ReactPlayer
           className="player__header"
           width="100%"
-          height="800px"
+          height="100%"
           url={videoHeader}
           playing={true}
           muted={true}
@@ -69,8 +65,8 @@ class App extends React.Component {
               <ReactPlayer
                 className="player"
                 ref={this.ref}
-                width="1000px"
-                height="100%"
+                width="1312px"
+                height="540px"
                 url={video}
                 file={{ forceHLS: true }}
                 muted={true}
@@ -176,6 +172,15 @@ class App extends React.Component {
             </div>
           </div>
         </section>
+        <ReactPlayer
+          className="player__footer"
+          width="100%"
+          height="100%"
+          url={videoFooter}
+          playing={true}
+          muted={true}
+          loop={true}
+        />
       </div>
     );
   }
