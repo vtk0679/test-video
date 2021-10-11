@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import video from './1.mp4';
+import videoHeader from './2.mp4';
 import ReactPlayer from 'react-player';
 
 class App extends React.Component {
@@ -49,6 +50,15 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <ReactPlayer
+          className="player__header"
+          width="100%"
+          height="2000px"
+          url={videoHeader}
+          playing={true}
+          muted={true}
+          loop={true}
+        />
         <ReactPlayer
           className="player"
           ref={this.ref}
