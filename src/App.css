@@ -1,0 +1,19 @@
+.App {
+  position: relative;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    background-color: #e6e8ec;
+  }
+}
+
+p {
+  width: 300px;
+  margin-left: 800px;
+  background-color: #e6e8ec;
+}
+
+.player {
+  position: fixed;
+  z-index: -1;
+}
