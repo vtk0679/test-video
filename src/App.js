@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import video from './1.mp4';
+import videoHeader from './2.mp4';
 import ReactPlayer from 'react-player';
 
 class App extends React.Component {
@@ -50,6 +51,15 @@ class App extends React.Component {
     return (
       <div className="App">
         <ReactPlayer
+          className="player__header"
+          width="100%"
+          height="2000px"
+          url={videoHeader}
+          playing={true}
+          muted={true}
+          loop={true}
+        />
+        <ReactPlayer
           className="player"
           ref={this.ref}
           width="1000px"
@@ -58,6 +68,7 @@ class App extends React.Component {
           file={{ forceHLS: true }}
           muted={true}
         />
+
         <p>
           Fast response times We react quickly to your concerns with our top
           management and realize them immediately due to short instance ways.
