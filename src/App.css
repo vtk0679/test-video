@@ -3,17 +3,30 @@
 
   @media screen and (min-width: 768px) {
     display: flex;
-    background-color: #e6e8ec;
   }
 }
 
-p {
-  width: 300px;
-  margin-left: 800px;
-  background-color: #e6e8ec;
+.main {
+  width: 609px;
+  margin-left: 700px;
+  z-index: 5;
 }
 
 .player {
-  position: fixed;
-  z-index: 10;
+  visibility: visible;
+  width: 82em;
+  bottom: 89px;
+  top: 245px;
+  position: sticky;
+}
+.section {
+  /* position: absolute; */
+  background-color: #e6e8ec;
+}
+
+.mainTitle {
+  text-align: center;
+  /* z-index: 10; */
+}
+.text {
 }
