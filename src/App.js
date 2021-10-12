@@ -1,9 +1,11 @@
-import './App.css';
-import React from 'react';
-import video from './1.mp4';
-import videoHeader from './2.mp4';
-import videoFooter from './3.mp4';
-import ReactPlayer from 'react-player';
+import "./App.css";
+import React from "react";
+import video from "./1.mp4";
+import videoHeader from "./2.mp4";
+import videoFooter from "./3.mp4";
+import ReactPlayer from "react-player";
+import logo1 from "./img/logo1.png";
+import logo2 from "./img/logo2.png";
 
 class App extends React.Component {
   state = {
@@ -13,11 +15,11 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    window.addEventListener('scroll', this.listenToScroll);
+    window.addEventListener("scroll", this.listenToScroll);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.listenToScroll);
+    window.removeEventListener("scroll", this.listenToScroll);
   }
 
   listenToScroll = () => {
@@ -26,11 +28,11 @@ class App extends React.Component {
     if (scroll > 0) this.onSeek(scroll / height);
   };
 
-  ref = player => {
+  ref = (player) => {
     this.setState({ player });
   };
 
-  onSeek = value => {
+  onSeek = (value) => {
     this.setState({ value });
     if (
       value - this.state.seekTo > 0.035 ||
@@ -55,6 +57,16 @@ class App extends React.Component {
           muted={true}
           loop={true}
         />
+        {/* <img className="img1" src={logo1} alt="img" /> */}
+        <h1 className="title_big">
+          Our small company,
+          <br /> The complement to your success!
+        </h1>
+        <p className="main_text">
+          Welcome to PFZ-Peuker, <br />
+          we invite you to get to know our company.
+        </p>
+        <img className="img2" src={logo2} alt="img" />
 
         <section className="section">
           <h2 className="mainTitle">
